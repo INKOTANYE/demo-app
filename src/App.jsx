@@ -1,11 +1,18 @@
 import { useState } from "react";
 import Style from "./App.module.scss";
 import Feedbacky from "@zcopur/feedbacky";
-import { setFeedbackyProps } from "./utils";
 
 function App() {
   const [login, setlogin] = useState(false);
   const userId = login ? Math.floor(10000000 + Math.random() * 90000000) : null;
+
+  const mockState = {
+    companyId: 1,
+  };
+
+  const setFeedbackyProps = (userId) => {
+    return userId ? { ...mockState, userId } : { ...mockState };
+  };
 
   return (
     <div className={Style.container}>
